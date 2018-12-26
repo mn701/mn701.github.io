@@ -1,37 +1,90 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<!-- Facebook Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '497335310740262');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=497335310740262&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Link to CSS file -->
+    <link href='./style.css' rel="stylesheet" />
+    <!-- Link to Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!-- Link to jquery file -->
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    
+  </head>
 
-<script type="text/javascript">
-	function onClick() {
-		fbq('track', 'Purchase');
-		//alert("button clicked!");
-	};
-</script>
+  <body>
 
-<button onClick="onClick()">Buy Now</button>
+  <header>
+    <!-- logo -->
+    <h1 class="logo"><img src="images/logo.png" alt="Logo" height="30px" />My Page</h1>
+    <!-- navigation -->
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+      	<li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="pic">
+    <img src="images/cakes.jpg" />
+  </div>
 
-<button onClick="onClick()">Buy as a Gift</button>
-
-</body>
+  <div class="container">
+    <article>
+      <section id="about">
+        <h2>About</h2>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </section>
+      <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+          <img class="img1" src="images/gallery/photo01.jpeg" />
+          <img class="img2" src="images/gallery/photo02.jpeg" />
+          <img class="img3" src="images/gallery/photo03.jpeg" />
+          <img class="img4" src="images/gallery/photo04.jpeg" />
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Get in touch</h2>
+        <p>You can find me on these social media links sometimes. Come say hi!</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <a href="https://www.facebook.com/">
+                  <img src="images/flogo.png" alt="facebook" width="80px" />
+                </a>
+              </td>
+              <td>
+                <a href="https://twitter.com">
+                  <img src="images/twitter.svg" width="80px" />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </article>
+    <aside>
+      <h3>Aside</h3>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.
+    </aside>
+    <footer>
+    </footer>
+    <p class="pagetop">
+    	<a href="#">PAGE TOP</a>
+    </p>
+  </div>
+  <footer>
+  	<p class="copyright">&copy; Dummy Page</p>
+  </footer>
+  <script type="text/javascript" src="./script.js"></script>
+  </body>
 </html>
