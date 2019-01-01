@@ -8,6 +8,24 @@
     <!-- Link to jquery file -->
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '497335310740262');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=497335310740262&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
   </head>
 
   <body>
@@ -19,7 +37,14 @@
     js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2&appId=131188034465398&autoLogAppEvents=1';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-
+    
+  <script type="text/javascript">
+      function onClick() {
+          fbq('track', 'Purchase');
+          //alert("button clicked!");
+      };
+  </script>
+    
   <header>
     <!-- logo -->
     <h1 class="logo"><img src="images/logo.png" alt="Logo" height="30px" />Boulangerie Soleil</h1>
@@ -60,7 +85,7 @@
           <tbody>
             <tr>
               <td>
-                <a href="https://www.facebook.com/">
+                <a href="https://www.facebook.com/BoulangerieSoleil">
                   <img src="images/flogo.png" alt="facebook" width="80px" />
                 </a>
               </td>
@@ -68,6 +93,14 @@
                 <a href="https://twitter.com">
                   <img src="images/twitter.svg" width="80px" />
                 </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button onClick="onClick()">Buy Now</button>
+              </td>
+              <td>
+                <button onClick="onClick()">Buy as a Gift</button>
               </td>
             </tr>
           </tbody>
