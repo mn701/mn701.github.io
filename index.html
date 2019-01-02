@@ -50,8 +50,11 @@
     
   <script type="text/javascript">
       function onClick() {
-          fbq('track', 'Purchase');
-          //alert("button clicked!");
+          fbq('track', 'Purchase', {
+            value: 30,
+            currency: 'SGD',
+          });
+          
       };
   </script>
     
@@ -90,7 +93,7 @@
       </section>
       <section id="contact">
         <h2>Get in touch</h2>
-        <p>You can find me on these social media links sometimes. Come say hi!</p>
+        <p>You can find us on these social media links sometimes. Come say hi!</p>
         <table>
           <tbody>
             <tr>
