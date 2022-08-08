@@ -1,480 +1,153 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link href="./style.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-<title>Chat</title>
-</head>
-<body onload="caseClear();" class="ss-base-body" dir="ltr">
-<div class="ss-form-container">
-<div class="ss-form-heading"><h1 class="ss-form-title">CHAT</h1></div>
-<div class="tab">
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'closing')">Closing</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'policy')">Policy</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'nointeraction')">No Interaction</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'functionality')">Functionality</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'duplicate')">Duplicate</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'oos')">OOS</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'selfhelp')">Selfhelp</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'patience')">Patience</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'reference')">Reference</button>
-  <!-- <button class="girly_btn_5 tablinks" onclick="openTab(event, 'by-email')">By Email</button> -->
-  <!-- <button class="girly_btn_5 tablinks" onclick="openTab(event, 'clone')">Clone</button> -->
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'compose_email')">Compose Email</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'ecm')">ECM</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'escalation')">Escalation</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'solutions')">Solutions</button>
-  <button class="girly_btn_5 tablinks" onclick="openTab(event, 'shortcuts')">Shortcuts</button>
-</div>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129673369-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-<div class="ss-form">
+      gtag('config', 'UA-129673369-2');
+    </script>
 
-<div class="ss-form-entry">
-  <div class="row">
-    <div class="form-group col">
-      日付： <input type="date" id="tday"  class="form-control" onload="getDate()" onchange="showTday()"><button class="btn-info btn-sm" onclick="getDate()">get date</button>
-      お名前: <input type="text" id="cus-name"  class="form-control" value="" onchange="setCusName()">
-      Phone No: <input type="number" id="phone"  class="form-control" value="" onchange="setPhoneNo(this)"><button class="btn-info btn-sm" onclick="confirmPhone()">Tel</button>
-    </div>
-    <div class="form-group col" id="caseinfo">
-      Flashcard: <input type="checkbox" id="checkflash"  class="form-control" onchange="checkFlash()">
-      Case No.: <input type="number" id="case-no"  class="form-control" value="" onchange="setOpening(1); checkFlash()">
-      Email: <input type="email" id="cus-email"  class="form-control" value="" onchange="setEmail(this)">
-    </div>
-    <div class="form-group col" >
-    	Ad Account ID: <input type="number" id="aid"  class="form-control" value="">
-    	Business ID: <input type="number" id="bid"  class="form-control" value="">
-    	User ID: <input type="number" id="uid"  class="form-control" value="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <!-- Link to CSS file -->
+    <link href='./style.css' rel="stylesheet" />
+    <!-- Link to Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!-- Link to jquery file -->
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 
-    </div>
-    <div class="form-group col">
-      <button type="button" class="btn btn-info" onclick="goToBrandTeam() ">Brand Team</button><br/>
-      90秒以上: <input type="checkbox" id="check90"  class="form-control" onchange="setOpening(1)">
-      <button class="btn btn-primary" onclick="setOpening(1)">Opening</button>
-      <button class="btn btn-primary" onclick="setOpening(2)">Opening EN</button>
-      <button class="btn btn-outline-primary" onclick="caseClear()">Case Clear</button>
-    </div>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '371237180441650');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=371237180441650&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <title>Boulangerie Soleil</title>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2&appId=131188034465398&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.2&appId=131188034465398&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  <script type="text/javascript">
+      function onClick() {
+          fbq('track', 'Purchase', {
+            value: '-32',
+            currency: 'SGD',
+            customParameter: "カスタム"
+          });
+
+      };
+      function onClick2() {
+          fbq('trackCustom', 'custom_event')
+      };
+  </script>
+
+  <header>
+    <!-- logo -->
+    <h1 class="logo"><img src="images/logo.png" alt="Logo" height="30px" />Boulangerie Soleil</h1>
+    <!-- navigation -->
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+      	<li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="pic">
+    <img src="images/cakes.jpg" />
   </div>
-  <label>Summary<input type="text" id="summary" class="form-control" onchange="setSummary()" size="80" /></label><br/>
 
-  <br/>
-</div>
-<div class="ss-form-entry">
-	<input class="btn btn-primary" value="Copy Text" type="button" onclick="copytext();">
-	<input class="btn btn-outline-primary" value="Clear Text" type="reset" onclick="clearTxtarea();">
-	<textarea class="form-control" rows="10" cols="100" id="myTextarea" onchange="logTxt(this.value)"></textarea>
-  <button class="btn btn-danger" onclick="splitByLine();">JSON</button>
+  <div class="container">
+    <article>
+      <section id="about">
+        <h2>About</h2>
+        <p>Our breads, buns, cupcakes and cookies are made from scratch, using only the best and natural ingredients, the old fashioned way.
+        </p>
+        <p>Contact us for wedding and special occasion cakes.</p>
+      </section>
+      <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+          <img class="img1" src="images/gallery/photo01.png" />
+          <img class="img2" src="images/gallery/photo02.png" />
+          <img class="img3" src="images/gallery/photo03.png" />
+          <img class="img4" src="images/gallery/photo04.png" />
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Get in touch</h2>
+        <p>You can find us on these social media links sometimes. Come say hi!</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <a href="https://www.facebook.com/BoulangerieSoleil">
+                  <img src="images/flogo.png" alt="facebook" width="80px" />
+                </a>
+              </td>
+              <td>
+                <a href="https://twitter.com">
+                  <img src="images/twitter.svg" width="80px" />
+                </a>
+              </td>
+            </tr>
+           </tbody>
+          </table>
+        <button onClick="onClick()">hello</button>
+        <button onClick="onClick2()">bye</button>
 
-	<!-- <div>
-		<button type="button" class="btn btn-info" onclick="setTxtarea('ご質問は以上とのことでかしこまりました！')">ご質問は以上とのことで</button>
-		<button type="button" class="btn btn-info" onclick="setTimeOfDay();setTxtarea(txt_cagain + txt_cagain2 + '\n\n' + txt_tq2)　">またご不明な点等ございましたらいつでもチャットへお越し下さいね。どうぞ</button>
-	</div> -->
-</div>
+    </article>
+    <aside>
+      <h3>Aside</h3>
+      <div class="fb-page" data-href="https://www.facebook.com/Lady-in-Grey-Book-Club-374303919804294" data-tabs="timeline" data-width="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Lady-in-Grey-Book-Club-374303919804294" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Lady-in-Grey-Book-Club-374303919804294">Lady in Grey Book Club</a></blockquote></div>
 
-<div class="ss-form-entry tabcontent" id="closing">
-	<h3>Closing</h3>
-  <p>
-    <label>ご質問<input type="text" class="form-control" id="sumq" onchange="setSummary()" size="50"/></label>
-    <label>ご回答<input type="text" class="form-control" id="suma" onchange="setSummary()" size="50"/></label>
-    <button type="button" onClick="printSummary()">サマリーを出力</button>
-  </p>
-	<div class="ss-item  ss-radio">
-		<label>Status</label>
-		<input name="cont" id="cont_done" value="donec" onclick="setCont(this, true);" type="radio"><label for="cont_done">Done Confirmed</label>
-		<input name="cont" id="cont_email" value="email" onclick="setCont(this, true);" type="radio"><label for="cont_email">Continue with Email</label>
-		<input name="cont" id="cont_update" value="emailupdate" onclick="setCont(this, true);" type="radio"><label for="cont_update">Update</label>
-		<input name="cont" id="cont_dup" value="dupmail" onclick="setCont(this, true);" type="radio"><label for="cont_dup">Continue Dup</label>
-		<input name="cont" id="cont_incv" value="incv" onclick="setCont(this, true);" type="radio"><label for="cont_incv">Email Apologize</label>
-	</div>
-  <div class="ss-item  ss-radio">
-    <label>EN</label>
-    <input name="cont" id="cont_en_done" value="en_done" onclick="setCont(this, true);" type="radio"><label for="cont_en_done">Done</label>
-    <input name="cont" id="cont_en_esc" value="en_esc" onclick="setCont(this, true);" type="radio"><label for="cont_en_esc">Escalation</label>
-  </div>
-	<!-- <div class="ss-item  ss-radio">
-		<label>Tier</label><br />
-		<input name="tier" id="tier_NA" value="" onclick="setTier(this);" type="radio">(Not Applicable)
-		<input name="tier" id="tier_GSO" value="GSO" onclick="setTier(this, true);" type="radio">GSO
-		<input name="tier" id="tier_SMB" value="SMB" onclick="setTier(this, true);" type="radio">SMB/ME
-	</div> -->
-	<div class="ss-item  ss-radio">
-		<input name="preclose" id="preclose_ca" value="comeagain" onclick="setPreClosing(this, true);" type="radio"><label for="preclose_ca">またご不明な点等ございましたらいつでもチャットへお越し下さいね。どうぞ</label><br>
-		<input name="preclose" id="preclose_tq1" value="tq1" onclick="setPreClosing(this, true);" type="radio"><label for="preclose_tq1">こちらこそ本日はお時間いただき</label>
-		<input name="preclose" id="preclose_tq2" value="tq2" onclick="setPreClosing(this, true);" type="radio"><label for="preclose_tq2">Facebookコンシェルジュサポートにお問い合わせい</label>
-		<input name="preclose" id="preclose_tq3" value="tq3" onclick="setPreClosing(this, true);" type="radio"><label for="preclose_tq3">以上お役に立ちましたら</label>
-		<button type="button" class="btn btn-info" onclick="setTimeOfDay();setTxtarea(txt_cagain + txt_cagain2)　">またご不明な点等ございましたらいつでもチャットへお越し下さいね。どうぞ</button>
-	</div>
 
-	<button class="btn btn-primary" onclick="setClosing()">Closing</button>
-	<div class="ss-form-entry">
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea('その他に、ご質問はございますでしょうか？')　">その他に、ご質問は</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea('承知いたしました。本件につきまして、その他にはよろしかったでしょうか？')　">本件につきまして、そのほかには</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea('ご質問は以上とのことでかしこまりました！')">ご質問は以上とのことで</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea('今後のご対応：')">今後のご対応：</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea('チャットでご案内した内容：')">チャットでご案内した内容：</button>
-	</div>
-  <div class="ss-form-entry">
-		<button type="button" class="btn btn-secondary" onclick="setPromptSurvey()　">【よい結果の際】</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_promptsurvey2)　">【希望に沿えない時】</button>
-  </div>
-  <p></p>
-  <div>
-
-  	<input name="byemail" id="byemail_rep_short" value="rep_shorter" onclick="setByEmail(this, true);" type="radio"><label for="byemail_rep_short">Policy Page Name changeなど、24-48時間</label>
-  	<input name="byemail" id="byemail_rep_long" value="rep_longer" onclick="setByEmail(this, true);" type="radio"><label for="byemail_rep_long">72時間以上</label>
-  	<input name="byemail" id="byemail_send" value="sene" onclick="setByEmail(this, true);" type="radio"><label for="byemail_send">この後お送りするメールに返信してください</label>
-  	<input name="byemail" id="byemail_sent" value="sente" onclick="setByEmail(this, true);" type="radio"><label for="byemail_sent">只今お送りしたメールに返信してください</label>
-  	<input name="byemail" id="byemail_cc" value="cc" onclick="setByEmail(this, true);" type="radio"><label for="byemail_cc">セキュリティ上の理由からこちらのシステムからは</label>
-    <br>
-    <label>Email: <input type="email" id="cus-email2" value="" onchange="setEmail(this)"></label>
-    <input name="byemail" id="byemail_difmail" value="difmail" onclick="setByEmail(this, true);" type="radio"><label for="byemail_difmail">別Eメール</label>
-    <input name="byemail" id="byemail_broken" value="brokenemail" onclick="setByEmail(this, true);" type="radio"><label for="byemail_broken">Broken Chat</label>
-  </div>
-</div>
-<div class="ss-form-entry">
-	<div class="ss-item  ss-radio">
-		<label>Acknowledge</label><br />
-		<input type="text" class="form-control" id="prob" value="" size="50">
-		<button type="button" onclick="clearAreas('prob')">clear</button><br/>
-		<input name="ackn" id="ackn_aplg" value="apologize" onclick="setAck(this, true);" type="radio"><label for="ackn_aplg">とのこと、ご不便をおかけしております。</label>
-		<input name="ackn" id="ackn_incnvn" value="inconvenience" onclick="setAck(this, true);" type="radio"><label for="ackn_incnvn">てお困り</label>
-		<input name="ackn" id="ackn_abt" value="about" onclick="setAck(this, true);" type="radio"><label for="ackn_abt">に関するご質問</label>
-		<input name="ackn" id="ackn_wish" value="wish" onclick="setAck(this, true);" type="radio"><label for="ackn_wish">ご希望の旨</label>
-		<input name="ackn" id="ackn_inq" value="inquiry" onclick="setAck(this, true);" type="radio"><label for="ackn_inq">とのお問い合わせ</label>
-		<br />
-		<input name="ackn" id="ackn_dtl1" value="detail1" onclick="setAck(this, true);" type="radio"><label for="ackn_dtl1">⇒につきまして、具体的に</label>
-		<input name="ackn" id="ackn_dtl2" value="detail2" onclick="setAck(this, true);" type="radio"><label for="ackn_dtl2">⇒につきまして、詳しくご教示</label>
-		<input name="ackn" id="ackn_dtl3" value="detail3" onclick="setAck(this, true);" type="radio"><label for="ackn_dtl3">⇒　画面</label>
-		<input name="ackn" id="ackn_dtl4" value="detail4" onclick="setAck(this, true);" type="radio"><label for="ackn_dtl4">早速ですがご質問</label>
-		<br />
-		<input name="ackn" id="ackn_bracket" value="bracket" onclick="setAck(this, true);" type="radio"><label for="ackn_bracket">『』⇒</label>
-		<input name="ackn" id="ackn_bracrct" value="brccorrect" onclick="setAck(this, true);" type="radio"><label for="ackn_bracrct">『』⇒ご認識です</label>
-		<input name="ackn" id="ackn_bracrct2" value="brccorrect2" onclick="setAck(this, true);" type="radio"><label for="ackn_bracrct2">『』⇒ご認識通りかと</label>
-		<input name="ackn" id="ackn_bracfm" value="brcconfirm" onclick="setAck(this, true);" type="radio"><label for="ackn_bracfm">『』⇒承知いたし</label>
-		ました
-		<input name="ackn" id="ackn_brawait" value="brcwait" onclick="setAck(this, true);" type="radio"><label for="ackn_brawait">『』⇒お待ちします</label>
-		<input name="ackn" id="ackn_bralstn" value="brclstn" onclick="setAck(this, true);" type="radio"><label for="ackn_bralstn">『』⇒お伺いいたします</label>
-		<input name="ackn" id="ackn_video" value="video_steps" onclick="setAck(this, true);" type="radio"><label for="ackn_video">よくわかるよう動画</label>
-	</div>
-	<div>
-		<input type="number" id="adaccount-id" value="" onchange="setAdAccountID(this)" ondblclick="confirmAID()">
-		<select id="info1">
-			<option value="広告アカウントID">広告アカウントID</option>
-			<option value="広告ID">広告ID</option>
-			<option value="キャンペーンID">キャンペーンID</option>
-			<option value="広告セットID">広告セットID</option>
-			<option value="ビジネスマネージャーID">ビジネスマネージャーID</option>
-			<option value="フェイスブックページID">フェイスブックページID</option>
-			<option value="ピクセルID">ピクセルID</option>
-			<option value="カタログID">カタログID</option>
-		</select>
-		<button type="button" class="btn btn-secondary" onclick="setInfoConfirm()">Confirm</button>
-		<button type="button" class="btn btn-secondary" onclick="setInfo1()">もご教示ください</button>
-		<button type="button" class="btn btn-secondary" onclick="setInfo2()">改めて</button>
-		<button type="button" class="btn btn-secondary" onclick="setInfoThank()">いただきありがとうございます</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea('詳細情報をご教示いただきありがとうございます。')　">詳細情報ありがとうございます。</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_tkexp)">事情をご説明いただきありがとうございました</button>
-		<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_tkundst)">ご理解いただきまして誠にありがとうございます</button>
-		<p>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea('詳細を確認させていただくため、ご覧になっている画面全体のスクリーンキャプチャをいただけますでしょうか')　">スクリーンキャプチャ</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea('確認させていただきますので、問題となっている画面全体のスクリーンキャプチャをいただくことは可能でしょうか。\n部分ではなく画面全体でいただけますと幸いです。')　">問題画面全体</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea('確認させていただきますので、エラーの出ている画面全体のスクリーンキャプチャをいただくことは可能でしょうか。')　">エラー画面全体</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea('キャプチャを確認させていただきました。')　">キャプチャ確認させていただきました。</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea('キャプチャをお送りいただきありがとうございました。')　">キャプチャありがとうございました</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_envideo + txt_envideo2 +  txt_envideo3)">動画英語</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_changelng)">言語変更方法</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_envideo + txt_envideo2 +  txt_envideo3 + '\n\n' + txt_changelng)">技術部門に調査を依頼（動画）</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_reset)">広告マネージャのリセット</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_troubleshoot)">ベーシックトラブルシューティング</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_cache)">キャッシュのクリア</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_iglng)">IG言語の変更</button>
-			<button type="button" class="btn btn-secondary" onclick="setTxtarea(txt_broken_chat)">Broken</button>
-		</p>
-	</div>
-</div>
-<div id="patience" class="ss-form-entry tabcontent">
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('さようでございますね。')　">さようでございますね</button>
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('さようでございますか。')　">さようでございますか。</button>
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('ご不便をお掛けしております。')　">ご不便をお掛けしております</button>
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('ご迷惑をおかけして申し訳ございません。')　">ご迷惑をおかけして申し訳ございません。</button>
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('この度は、ご迷惑をおかけして申し訳ございません。')　">この度は、ご迷惑をおかけして申し訳ございません。</button>
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('確認させていただきますね。')　">確認させていただきますね。</button>
-	<button type="button" class="btn btn-secondary"onclick="setTxtarea('メッセージ送信機能につきましてご不便をお掛けし申し訳ございません。')　">メッセージ送信機能につきましてご不便を</button>
-
-	<p>
-
-		<button type="button" id="min3" value=3 class="btn btn-secondary"onclick="setMinute(3);setWaitTime()">3分</button>
-		<button type="button" id="min3" value=3 class="btn btn-secondary"onclick="setMinute(5);setWaitTime()">5分</button>
-		<button type="button" id="min3" value=3 class="btn btn-secondary"onclick="setMinute('5~10');setWaitTime()">5~10</button>
-
-		<input type="number" id="minute" value="5" onchange="setMinute(this.value)" size="4">
-		<button type="button" onclick="setWaitTime()">分お待ちください</button>
-		<label><input type="checkbox" id="more" onclick="setMinute(5)" />さらに</label>
-		<label><input type="checkbox" id="recap" onclick="setMinute('5~10')" />まとめている</label>
-		<button type="button" onclick="setTxtarea('確認させていただいておりますので、今しばらくお待ちいただけますと幸いです。')　">確認させていただいておりますので、今しばらく</button>
-	</p>
-	<br/>
-	<button type="button" onclick="setTxtarea('お待たせいたしました。')　">お待たせいたしました。</button>
-	<button type="button" onclick="setTxtarea('大変お待たせし、申し訳ございません。')　">大変お待たせいたし、申し訳ございません。</button>
-	<button type="button" onclick="setTxtarea('お待たせいたしております。')　">お待たせいたしております。</button>
-</div>
-<!-- <div id="by-email" class="ss-item ss-radio tabcontent">
-	<label>Email: <input type="email" id="cus-email2" value="" onchange="setEmail(this)"></label>
-	<input name="byemail" id="byemail_rep_short" value="rep_shorter" onclick="setByEmail(this, true);" type="radio"><label for="byemail_rep_short">Policy Page Name changeなど、24-48時間</label>
-	<input name="byemail" id="byemail_rep_long" value="rep_longer" onclick="setByEmail(this, true);" type="radio"><label for="byemail_rep_long">Spam Oopsなどにエスカレが必要、48hr以上かかる</label>
-	<input name="byemail" id="byemail_send" value="sene" onclick="setByEmail(this, true);" type="radio"><label for="byemail_send">この後お送りするメールに返信してください</label>
-	<input name="byemail" id="byemail_sent" value="sente" onclick="setByEmail(this, true);" type="radio"><label for="byemail_sent">只今お送りしたメールに返信してください</label>
-	<input name="byemail" id="byemail_cc" value="cc" onclick="setByEmail(this, true);" type="radio"><label for="byemail_cc">セキュリティ上の理由からこちらのシステムからは</label>
-</div> -->
-<div id="reference" class="ss-form-entry tabcontent">
-	参考記事タイトル：<input type="text" id="refarticle" value="" size="50">
-			<button type="button" onclick="clearAreas('refarticle')">clear</button><br/>
-	URL：<input class="form-control"  type="text" id="refurl" value="" size="50">
-	<button type="button" class="btn btn-info" onclick="clearAreas('refurl')">clear</button><br/>
-	<button type="button" class="btn btn-info" onclick="setRef()">参考記事</button>
-	<button type="button" class="btn btn-info" onclick="setRefCon()">参考記事</button>
-</div>
-<div id="functionality" class="ss-form-entry tabcontent">
-	<input type="text" class="form-control"  id="missingfunc" value="" size="40" ondblclick="setMissingFunc()">
-	<button type="button" class="btn btn-info" onclick="setMissingFunc()">についてご意見を</button>
-	<button type="button" class="btn btn-info" onclick="setTxtarea(txt_opn)　">貴重なご意見</button>
-	<button type="button" class="btn btn-info" onclick="setNoFunct()　">ご希望に沿う機能がなく</button>
-	<button type="button" class="btn btn-info" onclick="setUnavailFunc()">一部のみで利用可能</button>
-  <button type="button" class="btn btn-info" onclick="setTxtarea(txt_benefit_others)　">他のユーザ様でも役に立つ</button>
-  <button type="button" class="btn btn-info" onclick="setTxtarea(txt_wanted)　">関心の高い</button>
-</div>
-<div id="nointeraction" class="ss-form-entry tabcontent">
-	<div class="ss-item  ss-radio">
-		<input name="nointr" id="nointr_ikaga" value="ikaga" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_ikaga">いかがでしょうか</label>
-		<input name="nointr" id="nointr_oiso" value="oiso" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_oiso">お忙しいようで</label>
-		<input name="nointr" id="nointr_ira" value="ira" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_ira">いらっしゃいますでしょうか</label>
-		<input name="nointr" id="nointr_tunaga" value="tunaga" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_tunaga">今つながって</label>
-		<input name="nointr" id="nointr_gokaku" value="gokaku" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_gokaku">ご確認いただいて</label>
-		<input name="nointr" id="nointr_system" value="systemno" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_system">システム上</label>
-		<input name="nointr" id="nointr_taiseki" value="taiseki" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_taiseki">申し訳ございません。既にご退席されて</label>
-		<input name="nointr" id="nointr_email" value="toemail" onclick="setNoIntraction(this, true);" type="radio"><label for="nointr_email">メールに切り替えて</label>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('No Interaction')">No Interaction</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#NRTRTPilot')">#NRTRTPilot</button>
-		<button type="button" onclick="setNoIntrEmail()　">メールを送付</button>
-		<button type="button" onclick="setNoIntrAftSol()　">回答後途切れた</button>
-		<button type="button" onclick="setNoIntrEndChat()　">チャット終了</button>
-	</div>
-</div>
-<div id="clone" class="ss-form-entry tabcontent">
-	お問い合わせ内容：<input type="text" id="clone-content" value="" size="50">
-	<button type="button" class="btn btn-info" class="btn btn-info" onclick="clearAreas('clone-content')">clear</button><br/>
-	お問い合わせ番号：<input type="text" id="clone-num" value="" size="50">
-	<button type="button" class="btn btn-info" class="btn btn-info" onclick="clearAreas('clone-num')">clear</button><br/>
-	<input type="text" class="form-control"  id="clone-total" value="" size="5">件<br/>
-	<button type="button" class="btn btn-info" class="btn btn-info" onclick="setCloneSingle()">クローン別件</button>
-	<button type="button" class="btn btn-info" class="btn btn-info" onclick="setCloneMulti()">別件追加</button>
-	<button type="button" class="btn btn-info" class="btn btn-info" onclick="printClnCases()">全件出力</button>
-	<div id="clonelog">rogou</div>
-</div>
-
-<div id="policy" class="ss-form-entry tabcontent">
-	<!-- 広告アカウント：<input type="number" class="form-control" id="pol-aid" value=""><br/> -->
-	広告：<textarea class="form-control"  rows="10" cols="50" id="ads-area"></textarea><br/>
-	リンク：<input class="form-control"　type="text" id="pol-link" value="" size="50"><br/>
-	<div>
-    <button type="button" class="btn btn-info" onclick="setHelpAppeal()">お役に立てるようこちらからも審査を依頼</button>
-    <button type="button" class="btn btn-info" onclick="setAreas(txt_disapproved, 'pol-area')">この度は広告が未承認</button>
-    <button type="button" class="btn btn-info" onclick="setAreas(txt_pending,'pol-area')">この度は広告が審査中</button>
-    <button type="button" class="btn btn-info" onclick="setAreas(txt_want_review, 'pol-area')">再審査ご希望の旨</button>
-    <button type="button" class="btn btn-info" onclick="setAreas(txt_ask_adid,'pol-area')">広告IDも</button><br/>
-		<button type="button" class="btn btn-primary" onclick="setDisAdsMsg('disapproved')"><i class="fas fa-envelope mr-1"></i>非承認広告につきまして、Eメール</button>
-		<button type="button" class="btn btn-primary" onclick="setDisAdsMsg('pendingreview')"><i class="fas fa-envelope mr-1"></i>審査中につきまして、Eメール</button><br/>
-  </div>
-  <div>
-    <button type="button" class="btn btn-info" onclick="setAreas(txt_acc_disabled,'pol-area')">この度は広告アカウントが停止</button>
-    <button type="button" class="btn btn-info" onclick="setAreas(txt_ask_reactivate,'pol-area')">担当部門に再開できるか</button>
-    <button type="button" class="btn btn-primary" onclick="setDisAdsMsg('disabledaccount')"><i class="fas fa-envelope mr-1"></i>停止アカウントにつきまして、Eメール</button>
-	</div>
-	<textarea class="form-control"　rows="20" cols="100" id="pol-area"></textarea>
-	<div>
-		<button type="button" class="btn btn-info" onclick="setAreas(txt_schedule,'pol-area')">お急ぎの際はスケジュール</button>
-		<button type="button" class="btn btn-info" onclick="setAreas(txt_review_process,'pol-area')">通常24時間ですが、</button>
-		<button type="button" class="btn btn-info" onclick="setAreas(txt_wait_review,'pol-area')">24時間お待ちください</button><br/>
-		<button type="button" class="btn btn-info" onclick="setAreas(txt_cantcommit,'pol-area')">広告サポート窓口からはご確約いたしかねますこと</button>
-		<button type="button" class="btn btn-info" onclick="setAreas(txt_cantcommit_time,'pol-area')">時間についてご確約いたしかねますが</button><br/>
-	</div>
-</div>
-<div id="oos" class="tabcontent">
-	<div>
-		<button type="button" class="btn btn-info" onclick="setTxtarea(txt_devsupport)">開発者サポートまで</button>
-		<button type="button" class="btn btn-info" onclick="setTxtarea(txt_devsite)">Facebook Developer Siteへ直接</button>
-		<button type="button" class="btn btn-info" onclick="setTxtarea(txt_nocontact)">連絡手段を持っていない</button>
-		<button type="button" class="btn btn-info" onclick="setTxtarea(txt_rpt_igissue)">IGの問題はアプリから</button>
-	</div>
-</div>
-
-<div id="selfhelp" class="tabcontent">
-  <div>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-disapproved" value="1"> Disapproved Ads</label>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-disabledpayment" value="2">Disabled Payment</label>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-disabledaccnt" value="3">Policy Disabled Ad Account</label>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-disabledbm" value="4">Disabled Business Account</label>
-    <br/>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-cc" value="5">Security Checks Preventing Login</label>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-failed" value="6">Personal Account Disabled</label>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-page" value="9">Page Advertising Access</label>
-    <br/>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-limit" value="7">Facebook Blocks (Spam)</label>
-    <label class="mylabel"><input type="radio" name="selfsvc" onclick="setSelfHelpLink(this, true)" id="self-sme" value="8">Reporting a Violation or Infringement of Your Rights</label>
-  </div>
-</div><!-- close div tab selfhelp -->
-
-<div id="compose_email" class="ss-form-entry tabcontent">
-	<input type="text" id="mail-prob" value="" onclick="setMailProb()">
-	<div class="ss-item  ss-radio">
-		<input name="mailtype" id="mail_chatend" value="chatend" onclick="setMailType(this, true);" type="radio"><label for="mail_chatend">チャットが途中で切れた</label>
-		<input name="mailtype" id="mail_chatend2" value="chatend2" onclick="setMailType(this, true);" type="radio"><label for="mail_chatend">ヘッドセットお持ちでない</label>
-		<input name="mailtype" id="mail_chatbroken" value="chatbroken" onclick="setMailType(this, true);" type="radio"><label for="mail_chatbroken">Broken Chat</label>
-		<input name="mailtype" id="mail_errreply" value="errreply" onclick="setMailType(this, true);" type="radio"><label for="mail_errreply">エラーについて担当部署に</label>
-		<input name="mailtype" id="mail_videoen" value="videoen" onclick="setMailType(this, true);" type="radio"><label for="mail_videoen">動画を英語で</label>
-		<input name="mailtype" id="mail_additional" value="additional" onclick="setMailType(this, true);" type="radio"><label for="mail_additional">内容が不十分でしたので</label>
-		<br/>
-		<input name="mailtype" id="mail_disabled" value="disabledaccnt" onclick="setMailType(this, true);" type="radio"><label for="mail_disabled">アカウントが停止に</label>
-		<input name="mailtype" id="mail_disapproved" value="disapproved" onclick="setMailType(this, true);" type="radio"><label for="mail_disapproved">広告が未承認に</label>
-		<input name="mailtype" id="mail_pending" value="pendingreview" onclick="setMailType(this, true);" type="radio"><label for="mail_pending">広告が審査中</label>
-	</div>
-	<button class="btn btn-primary" onclick="writeEmail()">Write Email</button><br/>
-	<textarea rows="30" cols="160" class="form-control" id="mail-area"></textarea>
-	<div>
-		<input value="Copy Email" type="button" class="btn btn-info" onclick="copyTexts('mail-area');">
-		<input value="Clear Email" type="reset" class="btn btn-outline-info btn-sm" onclick="clearAreas('mail-area');">
-	</div>
-</div>
-<div id="ecm" class="tabcontent">
-	<div>
-    <p>
-      <input name="manage" id="manage-true" value="1" onclick="setEscType(document.querySelector('input[name="esctype"]:checked').value, true);" type="radio"> <label for="manage-true">Managed</label>
-      <input name="manage" id="manage-false" value="0" onclick="setEscType(document.querySelector('input[name="esctype"]:checked').value, true);" type="radio"> <label for="manage-false">Unmanaged</label>
-      <button type="button" class="btn btn-info" onclick="goToBrandTeam() ">Brand Team</button>
+      </section>
+    </aside>
+    <footer>
+    </footer>
+    <p class="pagetop">
+    	<a href="#">PAGE TOP</a>
     </p>
-		<input name="esctype" id="esc-disapproved" value="1" onclick="setEscType(this, true);" type="radio"> <label for="esc-disapproved">Disapprived Ads</label>
-		<input name="esctype" id="esc-pending" value="2" onclick="setEscType(this, true);" type="radio"><label for="esc-pending">Pending Review</label>
-		<input name="esctype" id="esc-text" value="10" onclick="setEscType(this, true);" type="radio"><label for="esc-text">Too Much Text</label>
-		<input name="esctype" id="esc-lowq" value="11" onclick="setEscType(this, true);" type="radio"><label for="esc-lowq">Low Quality</label>
-    <br/>
-		<input name="esctype" id="esc-precheck" value="12" onclick="setEscType(this, true);" type="radio"><label for="esc-precheck">Pre-Review</label>
-		<input name="esctype" id="esc-precheckreq" value="13" onclick="setEscType(this, true);" type="radio"><label for="esc-precheckreq">事前審査に必要</label>
-    <br/>
-		<input name="esctype" id="esc-accrisk" value="3" onclick="setEscType(this, true);" type="radio"><label for="esc-accrisk">Account Disabled Risk</label>
-		<input name="esctype" id="esc-accpolicy" value="4" onclick="setEscType(this, true);" type="radio"><label for="esc-accpolicy">Account Disabled Policy</label>
-    <br/>
-		<input name="esctype" id="esc-cc" value="5" onclick="setEscType(this, true);" type="radio"><label for="esc-cc">CC whitelist</label>
-		<input name="esctype" id="esc-failed" value="8" onclick="setEscType(this, true);" type="radio"><label for="esc-failed">Failed Payment</label>
-		<input name="esctype" id="esc-limit" value="6" onclick="setEscType(this, true);" type="radio"><label for="esc-limit">Spend Limit</label>
-    <br/>
-		<input name="esctype" id="esc-sme" value="7" onclick="setEscType(this, true);" type="radio"><label for="esc-sme">SME</label>
-    <input name="esctype" id="esc-mvs" value="9" onclick="setEscType(this, true);" type="radio"><label for="esc-mvs">Internal</label>
-    <input name="esctype" id="esc-page" value="14" onclick="setEscType(this, true);" type="radio"><label for="esc-page">Page/IG esc precheck</label>
-    <button type="button" class="btn btn-info" onclick="setEscMsg() ">setEscMsg</button>
-
-
-	</div>
-	<textarea class="form-control" rows="5" cols="80" id="ecm-area"></textarea>
-  <div class="">
-    <input value="Copy ECM Text" type="button" class="btn btn-info" onclick="copyTexts('ecm-area');">
-    <input value="Clear ECM Text" type="reset" class="btn btn-outline-info" onclick="clearAreas('ecm-area');">
   </div>
-  <div>
-
-      <p>
-        <label>Issue: <textarea class="form-control" rows="2" cols="80" id="issue-area"></textarea></label><br>
-        <label>Job ID: <input type="text" class="form-control" id="job-id" onchange="setSummary()" size="50"/></label>
-        <input value="Status" type="button" class="btn btn-info" onclick="setIssueStatus();">
-      </p>
-
-
-  </div>
-</div>
-<div id="escalation" class="tabcontent">
-    <button type="button" class="btn btn-info" onclick="setTxtarea(txt_loginapprv)">アカウントにアクセス</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea(txt_proffound)">個人プロフィールの確認が取れました。</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea(txt_profnotfound)">Eメールに該当はございません</button>
-</div>
-<div id="solutions" class="tabcontent">
-	<div>
-		<button type="button" class="btn btn-info" onclick="setTxtarea('No Interaction')">No Interaction</button>
-		<button type="button" class="btn btn-info" onclick="setTxtarea('#forcedclose')">#forcedclose</button>
-		<button type="button" class="btn btn-info" onclick="setTxtarea('#Dup()')">#Dup</button>
-  <div>
-  <div>
-    	<button type="button" class="btn btn-info" onclick="setTxtarea('#bouncedmessage')">#bouncedmessage</button>
-    	<button type="button" class="btn btn-info" onclick="setTxtarea('#brokenchat')">#brokenchat</button>
-    	<button type="button" class="btn btn-info" onclick="setTxtarea('#MissingOpeningSpiel')">#MissingOpeningSpiel</button>
-  </div>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('CaseManagement<>')">CaseManagement\<\></button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('CaseManagement<Policy>')">CaseManagement Policy</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('CaseManagement<Bug>')">CaseManagement Bug</button>
-  </div>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#UIDBlocked')">#UIDBlocked NPC</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('KB 2.0 loading issue, T43380542.')">KB 2.0 loading issue</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('Selected \'Other\' at level 3. \nQuestion was about')">Selected Other</button>
-    <br/>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#Resolutionprovided')">#Resolutionprovided</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#use 160331184355073')">Clone</button>
-
-    <br>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#Bug')">#Bug</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#Whitelisting')">#Whitelisting</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#StaleTask')">#StaleTask</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#banhammer')">#banhammer</button>
-    <button type="button" class="btn btn-info" onclick="setTxtarea('#SL')">#SL</button>
-	</div>
-</div>
-<div id="shortcuts" class="tabcontent">
-	<div>
-      <input type="text" id="shortcut" class="form-control" size="50" />
-      <button type="button" class="btn btn-info" onclick="setShortcut('catalog')">Catalog</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('am')">AM</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('crm')">CRM</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('fbcom')">fbcom</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('bmset')">BM Setting</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('pixel2')">BM Pixels</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('ig')">IG</button>
-      <br>
-      <button type="button" class="btn btn-info" onclick="setShortcut('transactions')">Billing transactions</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('billing_settings')">Billing setting</button>
-      <br>
-      <button type="button" class="btn btn-info" onclick="setShortcut('task')">Task</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('kb')">KB</button>
-      <button type="button" class="btn btn-info" onclick="setShortcut('team')">Brand Team</button>
-	</div>
-</div>
-<div id="duplicate" class="ss-form-entry tabcontent">
-  aaa Dup case ID: <input type="text" id="dup-case">
-  <input name="duptype" id="dup-no-res" value="1" onclick="setDup(this, true);" type="radio"> <label for="dup-no-res">現在も回答待ち</label>
-  <input name="duptype" id="dup-prevcase" value="2" onclick="setDup(this, true);" type="radio"><label for="dup-prevcase">本件については引き続き</label>
-  <input name="duptype" id="dup-tag" value="3" onclick="setDup(this, true);" type="radio"><label for="dup-tag">Dup</label>
-  <br/>
-  <button type="button" class="btn btn-info" onclick="setTxtarea(txt_dup_apl)">長らくお待たせしており申し訳ございません。</button>
-  <button type="button" class="btn btn-info" onclick="setTxtarea(txt_dup_reminded)">只今私の方からも催促</button>
-  <button type="button" class="btn btn-info" onclick="setTxtarea('The client from this case has reached out again for help on this issue.')">Client reached out again</button>
-</div>
-<div>
-	<a href="email.html" target="_blank"　rel="noopener noreferrer">Email作成</a>
-  <button type="button" class="btn btn-danger" onclick="printJson()">Print JSON</button>
-</div>
-<div>
-  <form action="email.html" method="post" onsubmit="return _submit();">
-  <input type="submit" value="OpenEmail"><br>
-  </form>
-</div>
-<br />
-<div id="output-log">
-
-</div>
-
-<p class="pagetop">
-    <a href="#">PAGE TOP</a>
-</p>
-</div>
-<script src="chat.js"></script>
-
-</body>
+  <footer>
+  	<p class="copyright">&copy; Boulangerie Soleil</p>
+  </footer>
+  <script type="text/javascript" src="./script.js"></script>
+  </body>
 </html>
